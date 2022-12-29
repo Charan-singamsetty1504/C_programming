@@ -1,0 +1,46 @@
+C programming
+{
+Arrays, 
+Strings, 
+Pointers=[Types of Pointers, Pointer Arthimetic, Const pointer],
+Storage Classes in C, 
+Files, 
+Char Arthimetic, 
+Bitwise Operators, 
+Variables=[Global, static , etc...], 
+}
+        
+Arduino
+{
+Basic Programs, 
+Sensors
+}
+
+Operating System
+{
+Process Management, 
+Resource Management, 
+Memory Management, 
+File Managament, 
+Signal Management, 
+IPC
+}
+
+Bitwise Algorithms
+{
+Setting a Bit, 
+Toggling a Bit, 
+Clearing a Bit
+}
+
+ADC
+{
+Basic Code in Any Microcontroller, 
+Architecture, 
+Merits and Demerits,
+}
+
+DAC
+PWM
+Device Drivers
+
