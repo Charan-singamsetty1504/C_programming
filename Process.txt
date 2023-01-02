@@ -1,0 +1,34 @@
+Process is nothing but a program in execution
+
+Example -  Work is a program and the work i was doing can be said as a process.
+
+->Programming
+->Debugging
+->Testing
+
+so on....
+
+Process needs resources to complete its task
+When the computer is given with the tasks and the execution of that tasks is a process
+The program is loaded into the memory is known as the proces
+and it as four types 
+->Stack- Process Stack contains the temporary Data such as method/function, return address, and local variables
+->heap - Dynamically allocated memory 
+->Text - General Current activity representated by the value of program counter 
+->Data - This section contains the global static variables
+------------------------------------------------------------
+Process Life Cycle
+
+1. Start - This is initial state 
+2. Ready- The Process is ready to be assigned 
+3. Running - Once the process has been assigned to a processor by the scheduler
+4. Waiting - Process needs to be in waiting state when there is no resources
+5. Terminated or Exit - Once, the process finshes its execution it will be terminated by the operating system 
+
+-----------------------------------------------------------
+Process control block
+
+This represents a information about a specific process
+
+->The operating system will create a data structure to store the information about the process 
+->The process control block is kept in a memory area that is protected from the normal user access
