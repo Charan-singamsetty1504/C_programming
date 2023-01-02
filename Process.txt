@@ -1,3 +1,5 @@
+**Process Management**
+
 Process is nothing but a program in execution
 
 Example -  Work is a program and the work i was doing can be said as a process.
@@ -15,8 +17,7 @@ and it as four types
 ->Stack- Process Stack contains the temporary Data such as method/function, return address, and local variables
 ->heap - Dynamically allocated memory 
 ->Text - General Current activity representated by the value of program counter 
-->Data - This section contains the global static variables
-------------------------------------------------------------
+
 Process Life Cycle
 
 1. Start - This is initial state 
@@ -32,3 +33,24 @@ This represents a information about a specific process
 
 ->The operating system will create a data structure to store the information about the process 
 ->The process control block is kept in a memory area that is protected from the normal user access
+
+
+
+
+----------------------------------------------------------
+Process Queues
+
+Process Stage - The Condition of the Process States
+
+Process Queue is used to hold the process related process control blocks, When the process make transition from one state to another state the pcb is un-linked and assigned to the other process 
+with the help of process scheduling 
+
+->Process Scheduling 
+
+Scheduling removes a currently running job from the processor and picks another task to perform. Process Scheduling divides a process into stages: ready, waiting, and running.
+
+There are two ways of scheduling:
+
+1. Non-Preemptive: The resource cannot be withdrawn from a process in non-preemptive until the process has completed execution. Resources are switched when a running process quits and changes to a waiting state.
+
+2. Preemptive: The operating system provides resources to a process for a set period in preemptive scheduling. During the allocation of resources, the process transitions from running to ready or from waiting to ready. This switching happens because the CPU may grant precedence to other processes and substitute the executing process with a higher priority process.
