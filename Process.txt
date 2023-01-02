@@ -54,3 +54,20 @@ There are two ways of scheduling:
 1. Non-Preemptive: The resource cannot be withdrawn from a process in non-preemptive until the process has completed execution. Resources are switched when a running process quits and changes to a waiting state.
 
 2. Preemptive: The operating system provides resources to a process for a set period in preemptive scheduling. During the allocation of resources, the process transitions from running to ready or from waiting to ready. This switching happens because the CPU may grant precedence to other processes and substitute the executing process with a higher priority process.
+
+Types of Process Scheduling
+
+Long-Term Scheduler
+A long-term scheduler determines which system should process programs. It uses CPU Scheduling to select and load programs into memory for execution. It manages the degree of multiprogramming and offers a balanced combination of jobs such as I/O bound and CPU bound.
+
+A steady degree of multiprogramming indicates that the average rate of initialization and the average rate of process departure from the system are equal. Many systems, such as time-sharing operating systems, do not have a long-term scheduler since it is only necessary when a process transitions from new to ready.
+
+Medium-Term Scheduler
+Medium-term scheduling, which is part of swapping, removes programs from memory. It lowers the amount of multiprogramming and handles the switched-out processes. For enhancing the process mix, swapping is required.
+
+When a current process makes an I/O request, it is suspended, which cannot be performed. As a result, the suspended process is transferred to secondary storage to free up memory for other operations. This is known as switching, and the act of swapping is referred to as switched out or rolled out.
+
+Short-Term Scheduler
+A short-term scheduler, often known as a CPU scheduler, boosts system performance based on a predefined set of parameters. This is the process's transition from the ready state to the operating state.
+
+It chooses one of the many processes ready to be executed and assigns the CPU to one of them. It is speedier than long-term schedulers, and it is also known as a dispatcher since it decides which process will be run next.
