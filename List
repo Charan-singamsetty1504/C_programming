@@ -18,10 +18,11 @@ Sensors
 
 Operating System
 {
-Process Management, 
+Types of Operating Systems, 
+Process Management = [Creation, Process States, Process control Block, Process Synchronization], 
 Resource Management, 
-Memory Management, 
-File Managament, 
+Memory Management = [paging, segmentation], 
+File Managament= [Creation, Deletion, Updation, Transferring, Moving, Renaming], 
 Signal Management, 
 IPC
 }
