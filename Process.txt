@@ -74,16 +74,43 @@ Location of the Process Control Block
 The process control block is kept in a memory area that is protected from the normal user access. This is done because it contains important process information. Some of the operating systems place the PCB at the beginning of the kernel stack for the process as it is a safe location.
 
 ***Process Control block (PCB) is a data structure that stores information of a process. PCBs are stored in specially reserved memory for the operating system known as kernel space.***
+***Process Control Block (PCB) does not contain the boostrap program***
+**The Number of process completed per unit time is known as Throughput.**
+
+Degree of Multiprogramming - The Number of processes in Memory.
 
 ----------------------------------------------------------
-Process Queues
 
 Process Stage - The Condition of the Process States
 
-Process Queue is used to hold the process related process control blocks, When the process make transition from one state to another state the pcb is un-linked and assigned to the other process 
-with the help of process scheduling 
+__Process__Queues___
 
-->Process Scheduling 
+Process Queue is used to hold the process related process control blocks, When the process make transition from one state to another state the pcb is un-linked and assigned to the other process with the help of process scheduling 
+
+The Operating system manages various types of queues for each of the process states. The PCB related to the process is also stored in the queue of the same state. If the Process is moved from one state to another state then its PCB is also unlinked from the corresponding queue and added to the other state queue in which the transition is made.
+
+1. Job Queue
+In starting, all the processes get stored in the job queue. It is maintained in the secondary memory. The long term scheduler (Job scheduler) picks some of the jobs and put them in the primary memory.
+
+2. Ready Queue
+Ready queue is maintained in primary memory. The short term scheduler picks the job from the ready queue and dispatch to the CPU for the execution.
+
+3. Waiting Queue
+When the process needs some IO operation in order to complete its execution, OS changes the state of the process from running to waiting. The context (PCB) associated with the process gets stored on the waiting queue which will be used by the Processor when the process finishes the IO.
+
+
+->Process Scheduling 
+
+Comparison among Scheduler
+
+ Long-Term Scheduler	                           Short-Term Scheduler                                    Medium-Term Scheduler
+ 
+-It is a job scheduler	                        -It is a CPU scheduler	                                -It is a process swapping scheduler.
+-Speed is lesser than short term scheduler	    -Speed is fastest among other two	               -Speed is in between both short and long term scheduler.
+-It controls the degree of multiprogramming	 -It provides lesser control over degree of multiprogramming	-It reduces the degree of multiprogramming.
+-It is almost absent or minimal in time sharing system	-It is also minimal in time sharing system	      -It is a part of Time sharing systems.
+-It selects processes from pool                	-It selects those processes which are ready to execute	   -It can re-introduce                            and loads them into memory for execution                                                                    the process into memory and execution can be continued.
+
 
 Scheduling removes a currently running job from the processor and picks another task to perform. Process Scheduling divides a process into stages: ready, waiting, and running.
 
@@ -125,3 +152,9 @@ It chooses one of the many processes ready to be executed and assigns the CPU to
 Short-term scheduling involves selecting one of the processes from the ready queue and scheduling them for execution. This is done by the short-term scheduler. A scheduling algorithm is used to decide which process will be scheduled for execution next by the short-term scheduler.
 
 For example, when a running process is interrupted and may be changed, the short-term scheduler must recalibrate and give the highest-priority job the green light.
+
+(*). Context Switching
+
+A context switching is the mechanism to store and restore the state or context of a CPU in Process Control block so that a process execution can be resumed from the same point at a later time. Using this technique, a context switcher enables multiple processes to share a single CPU. Context switching is an essential part of a multitasking operating system features.
+
+When the scheduler switches the CPU from executing one process to execute another, the state from the current running process is stored into the process control block. After this, the state for the process to run next is loaded from its own PCB and used to set the PC, registers, etc. At that point, the second process can start executing.
