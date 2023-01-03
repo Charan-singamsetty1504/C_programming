@@ -141,7 +141,7 @@ When the process needs some IO operation in order to complete its execution, OS 
 Comparison among Scheduler
 
  Long-Term Scheduler	                           Short-Term Scheduler                                    Medium-Term Scheduler
- 
+
 -It is a job scheduler	                        -It is a CPU scheduler	                                -It is a process swapping scheduler.
 -Speed is lesser than short term scheduler	    -Speed is fastest among other two	               -Speed is in between both short and long term scheduler.
 -It controls the degree of multiprogramming	 -It provides lesser control over degree of multiprogramming	-It reduces the degree of multiprogramming.
@@ -156,6 +156,63 @@ There are two ways of scheduling:
 1. Non-Preemptive: The resource cannot be withdrawn from a process in non-preemptive until the process has completed execution. Resources are switched when a running process quits and changes to a waiting state.
 
 2. Preemptive: The operating system provides resources to a process for a set period in preemptive scheduling. During the allocation of resources, the process transitions from running to ready or from waiting to ready. This switching happens because the CPU may grant precedence to other processes and substitute the executing process with a higher priority process.
+
+   A Process Scheduler schedules different processes to be assigned to the CPU based on particular scheduling algorithms. There are six popular process scheduling algorithms which we are going to discuss in this chapter −
+
+   - First-Come, First-Served (FCFS) Scheduling
+   - Shortest-Job-Next (SJN) Scheduling
+   - Priority Scheduling
+   - Shortest Remaining Time
+   - Round Robin(RR) Scheduling
+   - Multiple-Level Queues Scheduling
+
+   These algorithms are either **non-preemptive or preemptive**. Non-preemptive algorithms are designed so that once a process enters the running state, it cannot be preempted until it completes its allotted time, whereas the preemptive scheduling is based on priority where a scheduler may preempt a low priority running process anytime when a high priority process enters into a ready state.
+
+   ## First Come First Serve (FCFS)
+
+   - Jobs are executed on first come, first serve basis.
+   - It is a non-preemptive, pre-emptive scheduling algorithm.
+   - Easy to understand and implement.
+   - Its implementation is based on FIFO queue.
+   - Poor in performance as average wait time is high.
+
+   ## Shortest Job Next (SJN)
+
+   - This is also known as **shortest job first**, or SJF
+
+   - This is a non-preemptive, pre-emptive scheduling algorithm.
+
+   - Best approach to minimize waiting time.
+
+   - Easy to implement in Batch systems where required CPU time is known in advance.
+
+   - Impossible to implement in interactive systems where required CPU time is not known.
+
+   - The processer should know in advance how much time process will take.
+
+     ## Priority Based Scheduling
+
+     - Priority scheduling is a non-preemptive algorithm and one of the most common scheduling algorithms in batch systems.
+
+     - Each process is assigned a priority. Process with highest priority is to be executed first and so on.
+
+     - Processes with same priority are executed on first come first served basis.
+
+     - Priority can be decided based on memory requirements, time requirements or any other resource requirement.
+
+       ## Shortest Remaining Time
+
+       - Shortest remaining time (SRT) is the preemptive version of the SJN algorithm.
+       - The processor is allocated to the job closest to completion but it can be preempted by a newer ready job with shorter time to completion.
+       - Impossible to implement in interactive systems where required CPU time is not known.
+       - It is often used in batch environments where short jobs need to give preference.
+
+       ## Round Robin Scheduling
+
+       - Round Robin is the preemptive process scheduling algorithm.
+       - Each process is provided a fix time to execute, it is called a **quantum**.
+       - Once a process is executed for a given time period, it is preempted and other process executes for a given time period.
+       - Context switching is used to save states of preempted processes.
 
 Types of Process Scheduling
 
@@ -382,3 +439,11 @@ Inter-process Communication
   the writing process can choose to block or return with an error
   message. Similarly, when the message queue is empty, the system call
   to read a message can block or return empty.
+  
+- NEED OF IPC IN OS
+  
+- Let us now discuss several reasons for which a process needs to communicate or share data with other processes. Following are few reasons:
+
+  Information Sharing: Several users may need to access the same piece of information (e.g., a shared file). Thus, there needs to be an environment for concurrent access to the shared information
+  Computation Speedup: Often a task is split into several sub-tasks to speed up its execution. This also requires related processes to exchange information related to the task
+  Modularity: Most of the time applications are built in a modular fashion and divided into separate processes. For instance, the Google Chrome web browser spawns a separate process for each new tab
