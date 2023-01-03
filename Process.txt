@@ -34,7 +34,44 @@ This represents a information about a specific process
 ->The operating system will create a data structure to store the information about the process 
 ->The process control block is kept in a memory area that is protected from the normal user access
 
+Process Control Block is a data structure that contains information of the process related to it. The process control block is also known as a task control block, entry of the process table, etc.
 
+It is very important for process management as the data structuring for processes is done in terms of the PCB. It also defines the current state of the operating system.
+
+Structure of the Process Control Block
+The process control stores many data items that are needed for efficient process management. Some of these data items are explained with the help of the given diagram −
+
+The following are the data items −
+
+Process State
+This specifies the process state i.e. new, ready, running, waiting or terminated.
+
+Process Number
+This shows the number of the particular process.
+
+Program Counter
+This contains the address of the next instruction that needs to be executed in the process.
+
+Registers
+This specifies the registers that are used by the process. They may include accumulators, index registers, stack pointers, general purpose registers etc.
+
+List of Open Files
+These are the different files that are associated with the process
+
+CPU Scheduling Information
+The process priority, pointers to scheduling queues etc. is the CPU scheduling information that is contained in the PCB. This may also include any other scheduling parameters.
+
+Memory Management Information
+The memory management information includes the page tables or the segment tables depending on the memory system used. It also contains the value of the base registers, limit registers etc.
+
+I/O Status Information
+This information includes the list of I/O devices used by the process, the list of files etc.
+
+Accounting information
+The time limits, account numbers, amount of CPU used, process numbers etc. are all a part of the PCB accounting information.
+
+Location of the Process Control Block
+The process control block is kept in a memory area that is protected from the normal user access. This is done because it contains important process information. Some of the operating systems place the PCB at the beginning of the kernel stack for the process as it is a safe location.
 
 
 ----------------------------------------------------------
@@ -84,4 +121,6 @@ A short-term scheduler, often known as a CPU scheduler, boosts system performanc
 
 It chooses one of the many processes ready to be executed and assigns the CPU to one of them. It is speedier than long-term schedulers, and it is also known as a dispatcher since it decides which process will be run next.
 
+Short-term scheduling involves selecting one of the processes from the ready queue and scheduling them for execution. This is done by the short-term scheduler. A scheduling algorithm is used to decide which process will be scheduled for execution next by the short-term scheduler.
 
+For example, when a running process is interrupted and may be changed, the short-term scheduler must recalibrate and give the highest-priority job the green light.
