@@ -57,17 +57,29 @@ There are two ways of scheduling:
 
 Types of Process Scheduling
 
-Long-Term Scheduler
+1). Long-Term Scheduler
+
 A long-term scheduler determines which system should process programs. It uses CPU Scheduling to select and load programs into memory for execution. It manages the degree of multiprogramming and offers a balanced combination of jobs such as I/O bound and CPU bound.
 
 A steady degree of multiprogramming indicates that the average rate of initialization and the average rate of process departure from the system are equal. Many systems, such as time-sharing operating systems, do not have a long-term scheduler since it is only necessary when a process transitions from new to ready.
 
-Medium-Term Scheduler
+Example of a Long Term Scheduler
+
+Consider a long-term scheduler that creates all I/O bound processes. In this case, the CPU will remain idle for most of the time and we will not be utilizing our CPU to its full potential. On the other hand, if a long-term scheduler creates all CPU-bound processes, then the I/O waiting for queue will remain idle for most of the time, the devices will remain unused, and the CPU will remain busy for a long time.
+
+In these scenarios, we will not be utilizing the complete potential of our system. However, if the long term scheduler creates processes that have a perfect balance of both the CPU bound and I/O bound jobs, we will be utilizing the system to its full potential, hence reducing the process time.
+
+2). Medium-Term Scheduler
+
 Medium-term scheduling, which is part of swapping, removes programs from memory. It lowers the amount of multiprogramming and handles the switched-out processes. For enhancing the process mix, swapping is required.
 
 When a current process makes an I/O request, it is suspended, which cannot be performed. As a result, the suspended process is transferred to secondary storage to free up memory for other operations. This is known as switching, and the act of swapping is referred to as switched out or rolled out.
 
-Short-Term Scheduler
+For example, in the round-robin process, after a fixed time quantum, the process is again sent to the ready state from the running state. So, these things are done with the help of Medium-Term schedulers.
+
+3). Short-Term Scheduler
 A short-term scheduler, often known as a CPU scheduler, boosts system performance based on a predefined set of parameters. This is the process's transition from the ready state to the operating state.
 
 It chooses one of the many processes ready to be executed and assigns the CPU to one of them. It is speedier than long-term schedulers, and it is also known as a dispatcher since it decides which process will be run next.
+
+
