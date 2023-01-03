@@ -282,6 +282,8 @@ Though the context switching time is very less, still during that time, the CPU 
 Also, due to Context Switching, there is a frequent flush of TLB(Translation Lookaside Buffer) and Cache.
 Professor: Let's conclude whatever we have learned so far.
 
+-----------------------------------------------------------------------
+
 Inter-process Communication
 
 - Processes often need to communicate with each other in order to
