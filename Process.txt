@@ -209,3 +209,40 @@ After that, another process gets into the running state, or we can select a new 
 Now, we have to update the PCB (Process Control Block) for the selected process P2. It includes switching the process state from ready to running state or from another state like blocked, exit, or suspend.
 If the CPU already executes process P2, we need to get the status of process P2 to resume its execution at the same time point where the system interrupt occurs.
 Similarly, process P2 is switched off from the CPU so that the process P1 can resume execution. P1 process is reloaded from PCB1 to the running state to resume its task at the same point. Otherwise, the information is lost, and when the process is executed again, it starts execution at the initial level.
+
+Alice and Bob have been working hard to learn the concepts of an operating system, and they are here to learn context switching in an operating system.
+
+Professor: Bob, can you explain what is multitasking system?
+
+Bob: Yes, Professor, multiprocessing systems are the type of systems where multiple processes can be executed even if the system contains only one CPU.
+
+Professor: Very good, Bob! But have you ever wondered how multiple processes are executed on the system having a single CPU?
+
+Bob: No, but I am curious to learn that.
+
+Alice: Yes, Professor!
+
+Professor: The magic of executing multiple processes on a single CPU takes place with the help of Context Switching.
+
+When any process is utilizing CPU, and some other process requires the CPU, Context Switching is carried out before passing the control of CPU from the old process to the new process.
+
+Alice: Professor, what does context switching actually do, and why is Context Switching necessary?
+
+Professor: Let's have a look.
+
+Context Switching stores the state of the current process, and the state includes the information about the data that was stored in registers, the value of the program counter, and the stack pointer. Context Switching is necessary because if we directly pass the control of CPU to the new process without saving the state of the old process and later if we want to resume the old process from where it was stopped, we won't be able to do that as we don't know what was the last instruction the old process executed. Context Switching overcomes this problem by storing the state of the process.
+
+Alice: Oh! Now I understand why Context Switching is essential.
+
+Bob: Yes, imagine if Context Switching is not there, and you are taking notes in a word file, and each time you browse something on the web and switch back, you need to rewrite the entire notes. Giggles
+
+Professor: Haha! That's a nice way to put the concept. Now let's see in which situations the context switch takes place.
+
+Advantage of Context Switching
+The main advantage of context switching is even if the system contains only one CPU, it gives the user an illusion that the system has multiple CPUs due to which multiple processes are being executed. The context switching is so fast that the user won't even realize that the processes are switched to and fro.
+The Disadvantage of Context Switching
+Though the context switching time is very less, still during that time, the CPU remains idle and does not do any fruitful work.
+Also, due to Context Switching, there is a frequent flush of TLB(Translation Lookaside Buffer) and Cache.
+Professor: Let's conclude whatever we have learned so far.
+
+
