@@ -10,6 +10,14 @@ Example -  Work is a program and the work i was doing can be said as a process.
 
 so on....
 
+A Process has various attributes associated with it. Some of the attributes of a Process are:
+
+Process Id: Every process will be given an id called Process Id to uniquely identify that process from the other processes.
+Process state: Each and every process has some states associated with it at a particular instant of time. This is denoted by process state. It can be ready, waiting, running, etc.
+CPU scheduling information: Each process is executed by using some process scheduling algorithms like FCSF, Round-Robin, SJF, etc.
+I/O information: Each process needs some I/O devices for their execution. So, the information about device allocated and device need is crucial.
+
+
 Process needs resources to complete its task
 When the computer is given with the tasks and the execution of that tasks is a process
 The program is loaded into the memory is known as the proces
