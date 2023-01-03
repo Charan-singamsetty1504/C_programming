@@ -73,6 +73,8 @@ In these scenarios, we will not be utilizing the complete potential of our syste
 
 Medium-term scheduling, which is part of swapping, removes programs from memory. It lowers the amount of multiprogramming and handles the switched-out processes. For enhancing the process mix, swapping is required.
 
+The use of medium term scheduler is to improve multiprogramming by allowing multiple processes to reside in main memory by swapping out processes that are waiting (need I/O) or low priority processes and swapping in other processes that were in ready queue.
+
 When a current process makes an I/O request, it is suspended, which cannot be performed. As a result, the suspended process is transferred to secondary storage to free up memory for other operations. This is known as switching, and the act of swapping is referred to as switched out or rolled out.
 
 For example, in the round-robin process, after a fixed time quantum, the process is again sent to the ready state from the running state. So, these things are done with the help of Medium-Term schedulers.
