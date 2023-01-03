@@ -20,7 +20,7 @@ I/O information: Each process needs some I/O devices for their execution. So, th
 
 Process needs resources to complete its task
 When the computer is given with the tasks and the execution of that tasks is a process
-The program is loaded into the memory is known as the proces
+The program is loaded into the memory is known as the process
 and it as four types 
 ->Stack- Process Stack contains the temporary Data such as method/function, return address, and local variables
 ->heap - Dynamically allocated memory 
@@ -28,11 +28,34 @@ and it as four types
 
 Process Life Cycle
 
-1. Start - This is initial state 
-2. Ready- The Process is ready to be assigned 
-3. Running - Once the process has been assigned to a processor by the scheduler
-4. Waiting - Process needs to be in waiting state when there is no resources
-5. Terminated or Exit - Once, the process finshes its execution it will be terminated by the operating system 
+1	
+Start
+
+This is the initial state when a process is first started/created.
+
+2	
+Ready
+
+The process is waiting to be assigned to a processor. Ready processes are waiting to have the processor allocated to them by the operating system so that they can run. Process may come into this state after Start state or while running it by but interrupted by the scheduler to assign CPU to some other process.
+
+3	
+Running
+
+Once the process has been assigned to a processor by the OS scheduler, the process state is set to running and the processor executes its instructions.
+
+4	
+Waiting
+
+Process moves into the waiting state if it needs to wait for a resource, such as waiting for user input, or waiting for a file to become available.
+
+5	
+Terminated or Exit
+
+Once the process finishes its execution, or it is terminated by the operating system, it is moved to the terminated state where it waits to be removed from main memory.
+
+?. When the Process gets terminated
+
+--> The Process gets terminated after it's execution or any other interrupt raised by the user
 
 -----------------------------------------------------------
 Process control block
