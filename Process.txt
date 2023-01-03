@@ -26,6 +26,12 @@ and it as four types
 ->heap - Dynamically allocated memory 
 ->Text - General Current activity representated by the value of program counter 
 
+why do we ned new process?
+
+-->To maintain the concurrency, we need another new process and that can be achieved by using fork() system call.
+
+Concurrency - Running Multiple instructions at a time, example - Multiple persons can't draw amount in different places so, that can be done by the concurrency
+
 Process Life Cycle
 
 1	
