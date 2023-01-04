@@ -494,3 +494,67 @@ It is like a scenario like filling the water with a tap into a bucket. The filli
    Basic Pipes
 
   The simplest form of communication with pipes is to provide parent-child communication using the `pipe()` library function. This function takes an int array of length 2. (Recall that arrays are always passed by reference.) Assuming the kernel is able to create the pipe, the array will contain the file descriptors for the two ends of the pipe. If the pipe creation, the function returns -1.
+
+//Sample pseudo-code program to implement IPC using Pipe (C language)//
+
+Start:
+Store any message in one character array ( char *msg=”Hello world”)
+Declare another character array
+Create a pipe by using pipe() system call
+Create another process by executing fork() system call
+In parent process use system call write() to write message from one process to
+another process.
+In child process display the message.
+
+
+------------------------------------------------------------------------------------------
+Shared memory 
+
+Shared memory is a memory shared between two or more processes. However, why do we need to share memory or some other means of communication?
+
+To reiterate, each process has its own address space, if any process wants to communicate with some information from its own address space to other processes, then it is only possible with IPC (inter process communication) techniques. As we are already aware, communication can be between related or unrelated processes.
+
+Usually, inter-related process communication is performed using Pipes or Named Pipes. Unrelated processes (say one process running in one terminal and another process in another terminal) communication can be performed using Named Pipes or through popular IPC techniques of Shared Memory and Message Queues.
+
+We have seen the IPC techniques of Pipes andNamed pipes and now it is time to know the remaining IPC techniques viz., Shared Memory, Message Queues, Semaphores, Signals, and Memory Mapping
+
+Shared memory is a technique in ipc section that two process or a code share the same memory segment and can be create using 
+<sys/shm.h> header file
+
+Create the shared memory segment or use an already created shared memory segment (shmget())
+
+Attach the process to the already created shared memory segment (shmat())
+
+Detach the process from the already attached shared memory segment (shmdt())
+
+Control operations on the shared memory segment (shmctl())
+-----------------------------------------------------------------------------------------
+
+Why do we need message queues when we already have the shared memory? It would be for multiple reasons, let us try to break this into multiple points for simplification −
+
+As understood, once the message is received by a process it would be no longer available for any other process. Whereas in shared memory, the data is available for multiple processes to access.
+
+If we want to communicate with small message formats.
+
+Shared memory data need to be protected with synchronization when multiple processes communicating at the same time.
+
+Frequency of writing and reading using the shared memory is high, then it would be very complex to implement the functionality. Not worth with regard to utilization in this kind of cases.
+
+What if all the processes do not need to access the shared memory but very few processes only need it, it would be better to implement with message queues.
+
+If we want to communicate with different data packets, say process A is sending message type 1 to process B, message type 10 to process C, and message type 20 to process D. In this case, it is simplier to implement with message queues. To simplify the given message type as 1, 10, 20, it can be either 0 or +ve or –ve as discussed below.
+
+Ofcourse, the order of message queue is FIFO (First In First Out). The first message inserted in the queue is the first one to be retrieved.
+Having seen certain information on message queues, now it is time to check for the system call (System V) which supports the message queues.
+
+To perform communication using message queues, following are the steps −
+
+Step 1 − Create a message queue or connect to an already existing message queue (msgget())
+
+Step 2 − Write into message queue (msgsnd())
+
+Step 3 − Read from the message queue (msgrcv())
+
+Step 4 − Perform control operations on the message queue (msgctl())
+
+----------------------------------------------------------------------------------------------
