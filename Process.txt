@@ -478,7 +478,9 @@ Inter-process Communication
   One classical **example of IPC is the producer-consumer problem**. A producer is an application/process that produces data. A consumer is an application/process that consumes the produced data. The producer and consumer processes can decide any of the mechanisms discussed before to communicate with each other.
 
 - **PIPE** 
-
+Pipes
+It is a half-duplex method (or one-way communication) used for IPC between two related processes.
+It is like a scenario like filling the water with a tap into a bucket. The filling process is writing into the pipe and the reading process is retrieved from the pipe.
 - # Pipes and FIFOs
 
   [Pipes](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/Glossary.html#term-pipe) allow processes to communicate using a unidirectional byte stream, with two ends designated by distinct [file descriptors](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/Glossary.html#term-file-descriptor). A common visual analogy for a pipe is a real-world water pipe; water that is poured into one end of the pipe comes out the other end. In the case of IPC, the “water” is the sequence of bytes being sent between the processes; the bytes are written into one end of the pipe and read from the other end. Pipes have several important characteristics that shape their use:
