@@ -447,3 +447,48 @@ Inter-process Communication
   Information Sharing: Several users may need to access the same piece of information (e.g., a shared file). Thus, there needs to be an environment for concurrent access to the shared information
   Computation Speedup: Often a task is split into several sub-tasks to speed up its execution. This also requires related processes to exchange information related to the task
   Modularity: Most of the time applications are built in a modular fashion and divided into separate processes. For instance, the Google Chrome web browser spawns a separate process for each new tab
+
+- Modes of IPC in OS
+
+- There are two modes through which processes can communicate with each other – shared memory and message passing. As the name suggests, the shared memory region shares a shared memory between the processes. On the other hand, the message passing lets processes exchange information through messages. Let’s explore these in detail in the subsequent sections.
+
+- **Inter-process communication (IPC)** is set of interfaces, which is usually programmed in order for the programs to communicate between series of processes. This allows running programs concurrently in an Operating System. These are the methods in IPC:
+
+- ### Shared Memory
+
+  Interprocess communication through the shared memory model **requires communicating processes to establish a shared memory region**. In general, the process that wants to communicate creates the shared memory region in its own address space. Other processes that wish to communicate to this process need to attach their address space to this shared memory segment:
+
+  By default, the operating system prevents processes from accessing other process memory. The shared memory model requires processes to agree to remove this restriction. Besides, as shared memory is established based on the agreement between processes, the processes are also responsible to ensure synchronization so that both processes are not writing to the same location at the same time.
+
+  ### Message Passing
+
+  Although the shared memory model is useful for process communication, it is not always suitable and achievable. For instance, in a distributed computing environment, the processes exchanging data might reside in different computer systems. Thus, it is not straightforward to establish a shared memory region for communication.
+
+  The message passing mechanism provides an alternative means processes for communication. In this mode, **processes interact with each other through messages with assistance from the underlying** 
+
+  In the above diagram two processes A, and B are communicating with each other through message passing. Process A sends a message M to the operating system (kernel). This message is then read by process B.
+
+  In order to successfully exchange messages, there needs to be a communication link between the processes. There are several techniques through which these communication links are established. Following are a bride overview of these mechanisms:
+
+  - Direct Communication: In the mode, each process explicitly specifies the recipient or the sender. For instance, if process A needs to send a message to process B, it can use the primitive ![send(B, message)](https://www.baeldung.com/wp-content/ql-cache/quicklatex.com-57f3851b9267f84d41b851f7a1ab1944_l3.svg)
+  - Indirect Communication: In this mode, processes can exchange messages through a mailbox. A mailbox is a container that holds the messages. For instance, if X is a mailbox, then process A can send a message to mailbox ![X](https://www.baeldung.com/wp-content/ql-cache/quicklatex.com-996ff7036e644e89f8ac379fa58d0cf7_l3.svg) using the primitive ![send(X, message)](https://www.baeldung.com/wp-content/ql-cache/quicklatex.com-db4ea05bbeb6a9a0a9b2c1f5225c1a74_l3.svg)
+  - Synchronization: This is an extension to direct and indirect communication with an additional option of synchronization. Based on the need. a process can choose to block while sending or receiving messages. Besides, it can also asynchronously communicate without any blocking
+  - Buffering: The exchanged messages reside in a temporary queue. These queues can be of zero, bounded, and unbounded capacity
+
+  One classical **example of IPC is the producer-consumer problem**. A producer is an application/process that produces data. A consumer is an application/process that consumes the produced data. The producer and consumer processes can decide any of the mechanisms discussed before to communicate with each other.
+
+- **PIPE** 
+
+- # Pipes and FIFOs
+
+  [Pipes](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/Glossary.html#term-pipe) allow processes to communicate using a unidirectional byte stream, with two ends designated by distinct [file descriptors](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/Glossary.html#term-file-descriptor). A common visual analogy for a pipe is a real-world water pipe; water that is poured into one end of the pipe comes out the other end. In the case of IPC, the “water” is the sequence of bytes being sent between the processes; the bytes are written into one end of the pipe and read from the other end. Pipes have several important characteristics that shape their use:
+
+  > - Pipes are *unidirectional*; one end must be designated as the reading end and the other as the writing end. Note that there is no restriction that different processes must read from and write to the pipe; rather, if one process writes to a pipe then immediately reads from it, the process will receive its own message. If two processes need to exchange messages back and forth, they should use two pipes.
+  > - Pipes are *order preserving*; all data read from the receiving end of the pipe will match the order in which it was written into the pipe. There is no way to designate some data as higher priority to ensure it is read first.
+  > - Pipes have a *limited capacity* and they use [blocking I/O](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/Glossary.html#term-blocking-i-o); if a pipe is full, any additional writes to the pipe will block the process until some of the data has been read. As such, there is no concern that the messages will be dropped, but there may be performance delays, as the writing process has no control over when the bytes will be removed from the pipe.
+  > - Pipes send data as unstructured *byte streams*. There are no pre-defined characteristics to the data exchanged, such as a predictable message length. The processes using the pipe must agree on a communication protocol and handle errors appropriately (such as if one of the processes terminates the communication early).
+  > - Messages that are smaller than the size specified by `PIPE_BUF` are guaranteed to be sent [atomically](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/Glossary.html#term-atomic). As such, if two processes write to a pipe at the same time, both messages will be written correctly and they will not interfere with each other.
+
+   Basic Pipes
+
+  The simplest form of communication with pipes is to provide parent-child communication using the `pipe()` library function. This function takes an int array of length 2. (Recall that arrays are always passed by reference.) Assuming the kernel is able to create the pipe, the array will contain the file descriptors for the two ends of the pipe. If the pipe creation, the function returns -1.
