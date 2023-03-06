@@ -1,0 +1,9 @@
+set and clear a bit $
+toggling a bit $
+counting the setbits in a number $
+checking the number is even or odd $
+checking the number is power of two or not $
+checking the number is power of four or not $ 
+reversing the given number - 0x5a5aabcd as 0xabcd5a5a
+adding of two numbers using bitwise
+swapping of two numbers using bitwise

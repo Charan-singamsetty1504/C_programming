@@ -1,0 +1,1 @@
+cmd_/home/charan/Desktop/device_drivers/main.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/charan/Desktop/device_drivers/main.ko /home/charan/Desktop/device_drivers/main.o /home/charan/Desktop/device_drivers/main.mod.o;  true

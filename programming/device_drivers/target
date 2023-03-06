@@ -1,0 +1,17 @@
+Example of the linux kernel module
+creation and loading of the first module 
+
+commands used is 
+
+for making 
+
+-make 
+
+for inserting the module 
+-sudo insmod .ko file 
+
+for seeing the log of the kernel using dmesg
+
+-sudo dmesg 
+
+

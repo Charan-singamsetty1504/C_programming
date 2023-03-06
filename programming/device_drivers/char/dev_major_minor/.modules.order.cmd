@@ -1,0 +1,1 @@
+cmd_/home/charan/Desktop/embed_bs/programming/device_drivers/char/devicedfile/modules.order := {   echo /home/charan/Desktop/embed_bs/programming/device_drivers/char/devicedfile/main.ko; :; } | awk '!x[$$0]++' - > /home/charan/Desktop/embed_bs/programming/device_drivers/char/devicedfile/modules.order

@@ -1,0 +1,23 @@
+Linked lists support various operations that can be performed on the data they store. Here are some common operations that can be done in linked lists:
+
+Insertion: Adding a new node to the linked list. This can be done at the beginning, middle, or end of the list.
+
+Deletion: Removing a node from the linked list. This can be done at the beginning, middle, or end of the list.
+
+Traversal: Visiting each node in the linked list, usually for the purpose of displaying or modifying the data stored in each node.
+
+Searching: Searching for a particular value or node in the linked list.
+
+Sorting: Reordering the nodes in the linked list based on some criteria, such as ascending or descending order of the data.
+
+Merging: Combining two linked lists into a single linked list.
+
+Splitting: Dividing a linked list into two smaller linked lists based on some criteria, such as even and odd nodes.
+
+Reversal: Reversing the order of the nodes in the linked list.
+
+Concatenation: Joining two linked lists end-to-end to form a longer linked list.
+
+Circularization: Converting a linear linked list into a circular linked list by making the last node point to the first node.
+
+These are just a few of the operations that can be performed on linked lists. Depending on the application, other operations may also be needed.

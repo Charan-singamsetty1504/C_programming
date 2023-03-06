@@ -1,0 +1,1 @@
+cmd_/home/charan/Desktop/embed_bs/programming/device_drivers/char/basic_modules/second/Module.symvers := sed 's/\.ko$$/\.o/' /home/charan/Desktop/embed_bs/programming/device_drivers/char/basic_modules/second/modules.order | scripts/mod/modpost -m -a  -o /home/charan/Desktop/embed_bs/programming/device_drivers/char/basic_modules/second/Module.symvers -e -i Module.symvers   -T -

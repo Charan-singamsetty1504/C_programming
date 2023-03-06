@@ -1,0 +1,1 @@
+cmd_/home/charan/Desktop/embed_bs/programming/device_drivers/char/devicedfile/main.mod := { echo  /home/charan/Desktop/embed_bs/programming/device_drivers/char/devicedfile/main.o;  echo; } > /home/charan/Desktop/embed_bs/programming/device_drivers/char/devicedfile/main.mod
