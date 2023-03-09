@@ -11,3 +11,17 @@ int main()
     }
     return 0;
 }//prints charan
+#include<stdio.h>
+
+int main()
+{
+char arr[] = "implement";
+char *ptr = arr;
+
+while(*ptr != '\0')
+	++*ptr++;
+printf("%s %s", arr, ptr);
+
+getchar();
+return 0;
+}
