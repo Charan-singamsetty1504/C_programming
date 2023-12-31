@@ -1,0 +1,1 @@
+cmd_/home/aransmith/linux/vsmod/module_param.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/aransmith/linux/vsmod/module_param.ko /home/aransmith/linux/vsmod/module_param.o /home/aransmith/linux/vsmod/module_param.mod.o;  true

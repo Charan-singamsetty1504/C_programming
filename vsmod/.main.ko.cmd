@@ -1,0 +1,1 @@
+cmd_/home/aransmith/linux/vsmod/main.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/aransmith/linux/vsmod/main.ko /home/aransmith/linux/vsmod/main.o /home/aransmith/linux/vsmod/main.mod.o;  true

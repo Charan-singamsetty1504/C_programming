@@ -1,0 +1,14 @@
+{
+    "files.exclude": {
+        "**/.git": true, 
+        "**/.svn": true, 
+        "**/.hg": true, 
+        "**/CVS": true, 
+        "**/.DS_Store": true, 
+        ".cmd": true, 
+        ".mod": true, 
+        ".symvers": true, 
+        ".order": true, 
+        ".o": true, 
+}
+}
